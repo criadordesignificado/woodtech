@@ -2,71 +2,365 @@
 
 import { useState, FormEvent } from 'react';
 
-type FilterCategory = 'all' | 'internas' | 'assinatura' | 'especiais';
+type FilterCategory =
+  | 'all'
+  | 'intermediaria'
+  | 'carpentry'
+  | 'engenheirada'
+  | 'slim'
+  | 'woodglass'
+  | 'especiais';
 
-interface ProductItem {
-  category: Exclude<FilterCategory, 'all'>;
-  small: string;
-  title: string;
-  description: string;
-  productValue: string;
-  ctaLabel: string;
+type ImageViewMode = 'ambient' | 'product';
+
+interface ModelVariant {
+  name: string;
+  ambientImage?: string;
+  productImage?: string;
 }
 
-const PRODUCTS: ProductItem[] = [
+interface ProductLineCard {
+  id: string;
+  category: Exclude<FilterCategory, 'all'>;
+  eyebrow: string;
+  title: string;
+  description: string;
+  quoteOption: string;
+  ctaLabel: string;
+  models: ModelVariant[];
+}
+
+const PRODUCT_LINES: ProductLineCard[] = [
   {
-    category: 'internas',
-    small: 'Linha BBB',
-    title: 'Inteira · Frisada · Vidro',
-    description: 'Três linguagens para dormitórios, corredores, cozinhas e ambientes de trabalho.',
-    productValue: 'Linha BBB',
-    ctaLabel: 'Consultar esta linha ↗',
+    id: 'intermediaria-bbb',
+    category: 'intermediaria',
+    eyebrow: 'Linha Intermediária · Família BBB',
+    title: 'Simples · Frisada · Vidro',
+    description:
+      'Três linguagens versáteis para dormitórios, corredores, cozinhas e ambientes corporativos, com folha lisa, frisos horizontais ou visor vertical.',
+    quoteOption: 'Linha Intermediária — BBB',
+    ctaLabel: 'Orçar Linha BBB',
+    models: [
+      {
+        name: 'BBB Simples',
+        ambientImage: '/assets/catalogo/bbb-simples-amb.png',
+        productImage: '/assets/catalogo/bbb-simples-prod.avif',
+      },
+      {
+        name: 'BBB Frisada',
+        ambientImage: '/assets/catalogo/bbb-frisada-amb.png',
+        productImage: '/assets/catalogo/bbb-frisada-prod.png',
+      },
+      {
+        name: 'BBB Vidro',
+        ambientImage: '/assets/catalogo/bbb-vidro-amb.png',
+        productImage: '/assets/catalogo/bbb-vidro-prod.avif',
+      },
+    ],
   },
   {
-    category: 'assinatura',
-    small: 'Linha Mundo',
+    id: 'intermediaria-ad',
+    category: 'intermediaria',
+    eyebrow: 'Linha Intermediária · Família AD',
+    title: 'AD 01 · AD 02 · AD 03 · AD Vidros',
+    description:
+      'Minimalismo, frisos demarcados e superfícies contínuas com opção de visores em vidro para projetos de arquitetura contemporânea.',
+    quoteOption: 'Linha Intermediária — AD',
+    ctaLabel: 'Orçar Linha AD',
+    models: [
+      {
+        name: 'AD 01',
+        ambientImage: '/assets/catalogo/ad-01-amb.png',
+        productImage: '/assets/catalogo/ad-01-prod.avif',
+      },
+      {
+        name: 'AD 02',
+        ambientImage: '/assets/catalogo/ad-02-amb.png',
+        productImage: '/assets/catalogo/ad-02-prod.avif',
+      },
+      {
+        name: 'AD 03',
+        ambientImage: '/assets/catalogo/ad-03-amb.png',
+        productImage: '/assets/catalogo/ad-03-prod.png',
+      },
+      {
+        name: 'AD Vidros',
+        productImage: '/assets/catalogo/ad-vidros-prod.avif',
+        ambientImage: '/assets/catalogo/ad-01-amb.png',
+      },
+    ],
+  },
+  {
+    id: 'intermediaria-classicas',
+    category: 'intermediaria',
+    eyebrow: 'Linha Intermediária · Clássicas & Vidro',
     title: 'Veneza · Suíça · Roma',
-    description: 'Desenhos ripados e composições com presença, ritmo e profundidade.',
-    productValue: 'Linha Mundo',
-    ctaLabel: 'Consultar esta linha ↗',
+    description:
+      'Desenhos com requadros envidraçados e almofadas clássicas que valorizam a iluminação natural, presença e profundidade.',
+    quoteOption: 'Linha Intermediária — Clássicas (Veneza, Suíça, Roma)',
+    ctaLabel: 'Orçar esta coleção',
+    models: [
+      {
+        name: 'Veneza',
+        ambientImage: '/assets/catalogo/veneza-amb.png',
+        productImage: '/assets/catalogo/veneza-prod.avif',
+      },
+      {
+        name: 'Veneza Inteira Vidro',
+        ambientImage: '/assets/catalogo/veneza-vidro-amb.png',
+        productImage: '/assets/catalogo/veneza-prod.avif',
+      },
+      {
+        name: 'Suíça',
+        ambientImage: '/assets/catalogo/suica-amb.png',
+        productImage: '/assets/catalogo/suica-prod.avif',
+      },
+      {
+        name: 'Roma',
+        ambientImage: '/assets/catalogo/roma-amb.png',
+        productImage: '/assets/catalogo/roma-prod.avif',
+      },
+    ],
   },
   {
-    category: 'assinatura',
-    small: 'Linha Mundo',
-    title: 'França · Itália · Bélgica · Mexicana',
-    description: 'Do envidraçado ao desenho tradicional e à madeira de caráter mais marcante.',
-    productValue: 'Linha Mundo',
-    ctaLabel: 'Consultar esta linha ↗',
+    id: 'intermediaria-internacional',
+    category: 'intermediaria',
+    eyebrow: 'Linha Intermediária · Internacional',
+    title: 'França · Itália · Belga · Mexicana · Malta',
+    description:
+      'Do envidraçado europeu ao desenho tradicional em madeira com almofadas e frisos de caráter marcante.',
+    quoteOption: 'Linha Intermediária — Internacional',
+    ctaLabel: 'Orçar esta coleção',
+    models: [
+      {
+        name: 'França',
+        ambientImage: '/assets/catalogo/franca-amb.png',
+        productImage: '/assets/catalogo/franca-prod.avif',
+      },
+      {
+        name: 'Itália',
+        ambientImage: '/assets/catalogo/italia-amb.png',
+        productImage: '/assets/catalogo/italia-prod.avif',
+      },
+      {
+        name: 'Belga',
+        ambientImage: '/assets/catalogo/belga-amb.png',
+        productImage: '/assets/catalogo/belga-prod.avif',
+      },
+      {
+        name: 'Mexicana',
+        ambientImage: '/assets/catalogo/mexicana-amb.png',
+        productImage: '/assets/catalogo/mexicana-prod.avif',
+      },
+      {
+        name: 'Malta',
+        productImage: '/assets/catalogo/malta-prod.avif',
+        ambientImage: '/assets/catalogo/mexicana-amb.png',
+      },
+    ],
   },
   {
-    category: 'internas',
-    small: 'Linha AD',
-    title: 'AD 01 · AD 02 · AD 03',
-    description: 'Minimalismo, frisos e superfícies contínuas para arquitetura contemporânea.',
-    productValue: 'Linha AD',
-    ctaLabel: 'Consultar esta linha ↗',
+    id: 'intermediaria-destaque',
+    category: 'intermediaria',
+    eyebrow: 'Linha Intermediária · Entradas & Destaque',
+    title: 'Basalto · Zoan',
+    description:
+      'Soluções de forte apelo arquitetônico para entradas e ambientes sociais, combinando madeira maciça trabalhadada e visores verticais.',
+    quoteOption: 'Linha Intermediária — Basalto / Zoan',
+    ctaLabel: 'Orçar Basalto / Zoan',
+    models: [
+      {
+        name: 'Basalto',
+        ambientImage: '/assets/catalogo/basalto-amb.png',
+        productImage: '/assets/catalogo/basalto-prod.avif',
+      },
+      {
+        name: 'Zoan',
+        ambientImage: '/assets/catalogo/zoan-amb.png',
+        productImage: '/assets/catalogo/basalto-prod.avif',
+      },
+    ],
   },
   {
+    id: 'linha-carpentry',
+    category: 'carpentry',
+    eyebrow: 'Linha Carpentry · Marcenaria Autoral',
+    title: 'Muxarabi · Alteza · Celeiro · Ibiza · Vicenza',
+    description:
+      'Portas especiais com tramas Muxarabi, venezianas, arcos e desenhos exclusivos de marcenaria para projetos de alto padrão.',
+    quoteOption: 'Linha Carpentry',
+    ctaLabel: 'Orçar Linha Carpentry',
+    models: [
+      {
+        name: 'Muxarabi',
+        productImage: '/assets/catalogo/carpentry-muxarabi-prod.avif',
+      },
+      {
+        name: 'Muxarabi I',
+        productImage: '/assets/catalogo/carpentry-muxarabi-1-prod.avif',
+      },
+      {
+        name: 'Alteza',
+        productImage: '/assets/catalogo/carpentry-alteza-prod.avif',
+      },
+      {
+        name: 'Celeiro',
+        productImage: '/assets/catalogo/carpentry-celeiro-prod.avif',
+      },
+      {
+        name: 'Holandesa',
+        productImage: '/assets/catalogo/carpentry-holandesa-prod.avif',
+      },
+      {
+        name: 'Ibiza',
+        productImage: '/assets/catalogo/carpentry-ibiza-prod.avif',
+      },
+      {
+        name: 'Modena',
+        productImage: '/assets/catalogo/carpentry-modena-prod.avif',
+      },
+      {
+        name: 'Segovia',
+        productImage: '/assets/catalogo/carpentry-segovia-prod.avif',
+      },
+      {
+        name: 'Vicenza',
+        productImage: '/assets/catalogo/carpentry-vicenza-prod.avif',
+      },
+    ],
+  },
+  {
+    id: 'linha-engenheirada',
+    category: 'engenheirada',
+    eyebrow: 'Linha Engenheirada · Estabilidade & Relevo',
+    title: 'Bivar · Durango · Novel · Ripada Fuji',
+    description:
+      'Construção engenheirada de alta estabilidade dimensional com painéis ripados e geometrias contemporâneas de precisão.',
+    quoteOption: 'Linha Engenheirada',
+    ctaLabel: 'Orçar Linha Engenheirada',
+    models: [
+      {
+        name: 'Bivar',
+        productImage: '/assets/catalogo/eng-bivar-prod.avif',
+      },
+      {
+        name: 'Durango',
+        productImage: '/assets/catalogo/eng-durango-prod.png',
+      },
+      {
+        name: 'Novel',
+        productImage: '/assets/catalogo/eng-novel-prod.avif',
+      },
+      {
+        name: 'Ripada Fuji',
+        productImage: '/assets/catalogo/eng-fuji-prod.png',
+      },
+    ],
+  },
+  {
+    id: 'linha-slim',
+    category: 'slim',
+    eyebrow: 'Linha Slim · Giro, Correr & Dupla',
+    title: 'PV 08 · PV 10 · PV 12',
+    description:
+      'Perfis esbeltos e almofadas proporcionais com opções em kit porta de giro, sistemas de correr e folha dupla.',
+    quoteOption: 'Linha Slim',
+    ctaLabel: 'Orçar Linha Slim',
+    models: [
+      {
+        name: 'PV 08',
+        ambientImage: '/assets/catalogo/slim-pv08-amb.png',
+        productImage: '/assets/catalogo/slim-pv08-prod.avif',
+      },
+      {
+        name: 'PV 10 (Kit de Giro)',
+        ambientImage: '/assets/catalogo/slim-pv10-amb.png',
+        productImage: '/assets/catalogo/slim-pv10-prod.avif',
+      },
+      {
+        name: 'PV 12',
+        ambientImage: '/assets/catalogo/slim-pv12-amb.avif',
+        productImage: '/assets/catalogo/slim-pv12-prod.jpg',
+      },
+      {
+        name: 'PV 12 Correr',
+        productImage: '/assets/catalogo/slim-pv12-correr-prod.png',
+        ambientImage: '/assets/catalogo/slim-pv10-amb.png',
+      },
+      {
+        name: 'PV 12 Dupla',
+        productImage: '/assets/catalogo/slim-pv12-dupla-prod.png',
+        ambientImage: '/assets/catalogo/slim-pv08-amb.png',
+      },
+    ],
+  },
+  {
+    id: 'linha-woodglass',
+    category: 'woodglass',
+    eyebrow: 'Linha WoodGlass · Madeira & Vidro',
+    title: 'Mônaco · Zurique · Milão · Panorâmica',
+    description:
+      'Integração luminosa entre estrutura em madeira e amplos visores de vidro para cozinhas, varandas gourmet e escritórios.',
+    quoteOption: 'Linha WoodGlass',
+    ctaLabel: 'Orçar Linha WoodGlass',
+    models: [
+      {
+        name: 'Mônaco',
+        ambientImage: '/assets/catalogo/woodglass-monaco-amb.png',
+        productImage: '/assets/catalogo/woodglass-monaco-prod.avif',
+      },
+      {
+        name: 'Zurique',
+        ambientImage: '/assets/catalogo/woodglass-zurique-amb.png',
+        productImage: '/assets/catalogo/woodglass-zurique-prod.avif',
+      },
+      {
+        name: 'Milão',
+        productImage: '/assets/catalogo/woodglass-milao-prod.avif',
+        ambientImage: '/assets/catalogo/woodglass-monaco-amb.png',
+      },
+      {
+        name: 'Panorâmica',
+        productImage: '/assets/catalogo/woodglass-panoramica-prod.avif',
+        ambientImage: '/assets/catalogo/woodglass-zurique-amb.png',
+      },
+    ],
+  },
+  {
+    id: 'especiais-jomadi',
     category: 'especiais',
-    small: 'Portas maciças',
-    title: 'Basalto · Zoan · Inteira Vidro',
-    description: 'Soluções de destaque para entradas e vãos especiais, sujeitas à avaliação técnica.',
-    productValue: 'Portas maciças',
-    ctaLabel: 'Consultar esta linha ↗',
-  },
-  {
-    category: 'especiais',
-    small: 'Catálogo por código',
-    title: 'Maciças · Venezianas · Pivotantes',
-    description: 'Já tem um código de modelo? Informe a referência para avaliação de disponibilidade e execução.',
-    productValue: 'Modelo por código',
-    ctaLabel: 'Enviar código ↗',
+    eyebrow: 'Especiais · Laqueadas & Catálogo Jomadi',
+    title: 'Laqueada Preta · Pivotantes · Estruturais',
+    description:
+      'Portas com pintura laqueada, soluções piso-teto e modelos por código do catálogo Jomadi (maciças, pivotantes e esquadrias).',
+    quoteOption: 'Especiais / Catálogo Jomadi',
+    ctaLabel: 'Consultar modelos e códigos',
+    models: [
+      {
+        name: 'Preta Laqueada',
+        productImage: '/assets/catalogo/especial-laqueada-prod.avif',
+        ambientImage: '/assets/interior.jpg',
+      },
+      {
+        name: 'Pivotantes & Estruturais (Jomadi)',
+        productImage: '/assets/catalogo/jomadi-1.jpeg',
+        ambientImage: '/assets/entrada.jpg',
+      },
+      {
+        name: 'Maciças & Venezianas (Jomadi)',
+        productImage: '/assets/catalogo/jomadi-2.jpeg',
+        ambientImage: '/assets/entrada-paisagismo.jpg',
+      },
+    ],
   },
 ];
 
 export default function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeFilter, setActiveFilter] = useState<FilterCategory>('all');
+  const [globalViewMode, setGlobalViewMode] = useState<ImageViewMode>('ambient');
+  const [selectedModels, setSelectedModels] = useState<Record<string, number>>({});
+  const [cardViewOverrides, setCardViewOverrides] = useState<Record<string, ImageViewMode>>({});
 
   const [nome, setNome] = useState('');
   const [zap, setZap] = useState('');
@@ -77,6 +371,19 @@ export default function HomePage() {
   const [mensagem, setMensagem] = useState('');
 
   const closeMenu = () => setMenuOpen(false);
+
+  const handleGlobalViewChange = (mode: ImageViewMode) => {
+    setGlobalViewMode(mode);
+    setCardViewOverrides({});
+  };
+
+  const handleCardViewChange = (cardId: string, mode: ImageViewMode) => {
+    setCardViewOverrides((prev) => ({ ...prev, [cardId]: mode }));
+  };
+
+  const handleSelectModel = (cardId: string, index: number) => {
+    setSelectedModels((prev) => ({ ...prev, [cardId]: index }));
+  };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -184,7 +491,7 @@ export default function HomePage() {
           <div className="wrap stats-grid">
             <div className="stat">
               <strong>+40</strong>
-              <span>modelos por código no catálogo</span>
+              <span>modelos em 6 linhas completas</span>
             </div>
             <div className="stat">
               <strong>7–10</strong>
@@ -261,58 +568,171 @@ export default function HomePage() {
               <span className="eyebrow">Linhas e soluções</span>
               <h2 className="title">A porta certa para cada projeto.</h2>
               <p className="lead">
-                De ambientes internos a entradas de grande presença arquitetônica. Escolha a família
-                e conte com nossa equipe para especificar medidas, abertura e acabamento.
+                Navegue pelas linhas organizadas por família e alterne entre a foto{' '}
+                <strong>Ambientada</strong> (aplicada no ambiente) e{' '}
+                <strong>Somente o produto</strong> (folha e acabamento em detalhe).
               </p>
             </div>
-            <div className="filters" role="group" aria-label="Filtrar modelos">
-              {(
-                [
-                  { id: 'all', label: 'Todos' },
-                  { id: 'internas', label: 'Interiores' },
-                  { id: 'assinatura', label: 'Assinatura' },
-                  { id: 'especiais', label: 'Especiais' },
-                ] as const
-              ).map((f) => (
+
+            <div className="catalogo-toolbar">
+              <div className="filters" role="group" aria-label="Filtrar por linha">
+                {(
+                  [
+                    { id: 'all', label: 'Todas as linhas' },
+                    { id: 'intermediaria', label: 'Linha Intermediária' },
+                    { id: 'carpentry', label: 'Linha Carpentry' },
+                    { id: 'engenheirada', label: 'Linha Engenheirada' },
+                    { id: 'slim', label: 'Linha Slim' },
+                    { id: 'woodglass', label: 'Linha WoodGlass' },
+                    { id: 'especiais', label: 'Especiais & Jomadi' },
+                  ] as const
+                ).map((f) => (
+                  <button
+                    key={f.id}
+                    type="button"
+                    className={`filter${activeFilter === f.id ? ' active' : ''}`}
+                    data-filter={f.id}
+                    onClick={() => setActiveFilter(f.id)}
+                  >
+                    {f.label}
+                  </button>
+                ))}
+              </div>
+
+              <div className="view-mode-bar" role="group" aria-label="Modo de visualização das imagens">
+                <span className="view-mode-label">Vista:</span>
                 <button
-                  key={f.id}
                   type="button"
-                  className={`filter${activeFilter === f.id ? ' active' : ''}`}
-                  data-filter={f.id}
-                  onClick={() => setActiveFilter(f.id)}
+                  className={`view-mode-btn${globalViewMode === 'ambient' ? ' active' : ''}`}
+                  onClick={() => handleGlobalViewChange('ambient')}
                 >
-                  {f.label}
+                  Ambientada
                 </button>
-              ))}
+                <button
+                  type="button"
+                  className={`view-mode-btn${globalViewMode === 'product' ? ' active' : ''}`}
+                  onClick={() => handleGlobalViewChange('product')}
+                >
+                  Somente o produto
+                </button>
+              </div>
             </div>
+
             <div className="product-grid" id="products">
-              {PRODUCTS.map((item, idx) => {
-                const isHidden = activeFilter !== 'all' && item.category !== activeFilter;
+              {PRODUCT_LINES.map((line) => {
+                const isHidden = activeFilter !== 'all' && line.category !== activeFilter;
+                const selectedIdx = selectedModels[line.id] ?? 0;
+                const currentModel = line.models[selectedIdx] ?? line.models[0];
+
+                const hasAmbient = Boolean(currentModel.ambientImage);
+                const hasProduct = Boolean(currentModel.productImage);
+                const hasBothViews = hasAmbient && hasProduct;
+
+                const requestedMode = cardViewOverrides[line.id] ?? globalViewMode;
+                const effectiveMode: ImageViewMode =
+                  requestedMode === 'ambient'
+                    ? hasAmbient
+                      ? 'ambient'
+                      : 'product'
+                    : hasProduct
+                      ? 'product'
+                      : 'ambient';
+
+                const imgSrc =
+                  effectiveMode === 'ambient'
+                    ? currentModel.ambientImage || currentModel.productImage!
+                    : currentModel.productImage || currentModel.ambientImage!;
+
                 return (
                   <article
-                    key={idx}
+                    key={line.id}
                     className="product"
-                    data-cat={item.category}
+                    data-cat={line.category}
                     hidden={isHidden}
                   >
-                    <small>{item.small}</small>
-                    <h3>{item.title}</h3>
-                    <p>{item.description}</p>
-                    <a
-                      href="#orcamento"
-                      data-product={item.productValue}
-                      onClick={() => setLinha(item.productValue)}
+                    <div
+                      className={`product-media ${
+                        effectiveMode === 'ambient' ? 'is-ambient' : 'is-product'
+                      }`}
                     >
-                      {item.ctaLabel}
-                    </a>
+                      <img
+                        src={imgSrc}
+                        alt={`${line.eyebrow} — Modelo ${currentModel.name} (${
+                          effectiveMode === 'ambient' ? 'Ambientada' : 'Somente o produto'
+                        })`}
+                        loading="lazy"
+                      />
+                      {hasBothViews && (
+                        <div className="media-toggle" role="group" aria-label="Alternar imagem">
+                          <button
+                            type="button"
+                            className={effectiveMode === 'ambient' ? 'active' : ''}
+                            onClick={() => handleCardViewChange(line.id, 'ambient')}
+                          >
+                            Ambientada
+                          </button>
+                          <button
+                            type="button"
+                            className={effectiveMode === 'product' ? 'active' : ''}
+                            onClick={() => handleCardViewChange(line.id, 'product')}
+                          >
+                            Produto
+                          </button>
+                        </div>
+                      )}
+                      <span className="media-badge">
+                        {currentModel.name} ·{' '}
+                        {effectiveMode === 'ambient' ? 'Ambientada' : 'Somente o produto'}
+                      </span>
+                    </div>
+
+                    <div className="product-body">
+                      <small>{line.eyebrow}</small>
+                      <h3>{line.title}</h3>
+                      <p>{line.description}</p>
+
+                      <span className="model-pills-label">
+                        Selecione o modelo ({line.models.length}):
+                      </span>
+                      <div className="model-pills">
+                        {line.models.map((m, mIdx) => (
+                          <button
+                            key={m.name}
+                            type="button"
+                            className={`model-pill${selectedIdx === mIdx ? ' active' : ''}`}
+                            onClick={() => handleSelectModel(line.id, mIdx)}
+                          >
+                            {m.name}
+                          </button>
+                        ))}
+                      </div>
+
+                      <a
+                        href="#orcamento"
+                        className="product-cta"
+                        data-product={line.quoteOption}
+                        onClick={() => {
+                          setLinha(line.quoteOption);
+                          setMensagem((prev) =>
+                            prev
+                              ? prev
+                              : `Interesse no modelo ${currentModel.name} (${line.eyebrow}).`
+                          );
+                        }}
+                      >
+                        <span>
+                          {line.ctaLabel} ({currentModel.name})
+                        </span>
+                        <span aria-hidden="true">↗</span>
+                      </a>
+                    </div>
                   </article>
                 );
               })}
             </div>
             <p className="disclaimer">
-              Modelos, materiais e disponibilidade sujeitos à confirmação no orçamento. Imagens de
-              arquitetura usadas como referência visual; não representam necessariamente itens
-              fabricados pela WoodTech.
+              Modelos, materiais e disponibilidade sujeitos à confirmação no orçamento. Imagens
+              ambientadas e de produto meramente ilustrativas das linhas trabalhadas sob medida.
             </p>
           </div>
         </section>
@@ -656,12 +1076,24 @@ export default function HomePage() {
                     onChange={(e) => setLinha(e.target.value)}
                   >
                     <option value="Preciso de orientação">Preciso de orientação</option>
-                    <option value="Linha BBB">Linha BBB</option>
-                    <option value="Linha Mundo">Linha Mundo</option>
-                    <option value="Linha AD">Linha AD</option>
-                    <option value="Portas maciças">Portas maciças</option>
-                    <option value="Modelo por código">Modelo por código</option>
-                    <option value="Esquadrias — consultar">Esquadrias — consultar</option>
+                    <option value="Linha Intermediária — BBB">Linha Intermediária — BBB</option>
+                    <option value="Linha Intermediária — AD">Linha Intermediária — AD</option>
+                    <option value="Linha Intermediária — Clássicas (Veneza, Suíça, Roma)">
+                      Linha Intermediária — Clássicas (Veneza, Suíça, Roma)
+                    </option>
+                    <option value="Linha Intermediária — Internacional">
+                      Linha Intermediária — Internacional
+                    </option>
+                    <option value="Linha Intermediária — Basalto / Zoan">
+                      Linha Intermediária — Basalto / Zoan
+                    </option>
+                    <option value="Linha Carpentry">Linha Carpentry</option>
+                    <option value="Linha Engenheirada">Linha Engenheirada</option>
+                    <option value="Linha Slim">Linha Slim</option>
+                    <option value="Linha WoodGlass">Linha WoodGlass</option>
+                    <option value="Especiais / Catálogo Jomadi">
+                      Especiais / Catálogo Jomadi
+                    </option>
                   </select>
                 </div>
               </div>
