@@ -268,6 +268,8 @@ section {
 
 .section {
   padding: 100px 0;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 45rem;
 }
 
 .section-head {
@@ -283,7 +285,7 @@ section {
 }
 
 .large-photo {
-  height: 630px;
+  height: 540px;
   object-fit: cover;
   width: 100%;
 }
@@ -389,7 +391,7 @@ section {
 .product-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 20px;
 }
 
 .product {
@@ -397,17 +399,18 @@ section {
   border: 1px solid var(--line);
   display: flex;
   flex-direction: column;
+  contain: layout style paint;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .product:hover {
   border-color: #b5ad9f;
-  box-shadow: 0 12px 30px rgba(25, 43, 36, 0.06);
+  box-shadow: 0 10px 24px rgba(25, 43, 36, 0.06);
 }
 
 .product-media {
   position: relative;
-  height: 340px;
+  height: 240px;
   width: 100%;
   overflow: hidden;
   border-bottom: 1px solid var(--line);
@@ -419,12 +422,12 @@ section {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: transform 0.35s ease;
+  transition: transform 0.3s ease;
 }
 
 .product-media.is-product {
   background: #fff;
-  padding: 18px;
+  padding: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -437,7 +440,7 @@ section {
   height: 100%;
   object-fit: contain;
   margin: auto;
-  transition: transform 0.35s ease;
+  transition: transform 0.3s ease;
 }
 
 .product:hover .product-media img {
@@ -446,8 +449,8 @@ section {
 
 .media-toggle {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 10px;
+  right: 10px;
   display: inline-flex;
   background: rgba(255, 253, 249, 0.94);
   border: 1px solid var(--line);
@@ -458,8 +461,8 @@ section {
 .media-toggle button {
   background: transparent;
   border: 0;
-  padding: 6px 10px;
-  font-size: 0.72rem;
+  padding: 5px 9px;
+  font-size: 0.7rem;
   font-weight: 700;
   color: var(--muted);
   letter-spacing: 0.03em;
@@ -472,19 +475,19 @@ section {
 
 .media-badge {
   position: absolute;
-  bottom: 12px;
-  left: 12px;
+  bottom: 10px;
+  left: 10px;
   background: rgba(25, 43, 36, 0.85);
   color: #fff;
-  padding: 5px 10px;
-  font-size: 0.7rem;
+  padding: 4px 9px;
+  font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .product-body {
-  padding: 26px 26px 28px;
+  padding: 22px 22px 24px;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -494,31 +497,31 @@ section {
   color: var(--wood);
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 700;
 }
 
 .product h3 {
-  font-size: 1.45rem;
+  font-size: 1.32rem;
   letter-spacing: -0.04em;
-  margin: 10px 0 8px;
+  margin: 8px 0 8px;
   font-family: var(--font-manrope), Manrope, sans-serif;
 }
 
 .product p {
   color: var(--muted);
-  line-height: 1.62;
-  font-size: 0.9rem;
-  margin: 0 0 16px;
+  line-height: 1.58;
+  font-size: 0.88rem;
+  margin: 0 0 14px;
 }
 
 .model-pills-label {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--muted);
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 7px;
   display: block;
 }
 
@@ -526,14 +529,14 @@ section {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .model-pill {
   background: var(--bg);
   border: 1px solid var(--line);
-  padding: 5px 11px;
-  font-size: 0.78rem;
+  padding: 4px 10px;
+  font-size: 0.76rem;
   font-weight: 600;
   color: var(--ink);
   transition: 0.18s;
@@ -551,14 +554,14 @@ section {
 
 .product-cta {
   margin-top: auto;
-  padding-top: 14px;
+  padding-top: 13px;
   border-top: 1px solid var(--line);
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: var(--green);
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
 }
 
 .product-cta:hover {
@@ -760,15 +763,56 @@ footer {
 
 .float-wa {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: var(--green);
-  color: white;
-  padding: 14px 19px;
+  bottom: 22px;
+  right: 22px;
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.float-wa-tag {
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 0.82rem;
   font-weight: 700;
-  z-index: 30;
-  box-shadow: 0 6px 24px #0002;
-  font-size: 0.84rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  white-space: nowrap;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.float-wa-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 22px rgba(37, 211, 102, 0.4);
+  transition: transform 0.2s ease, background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.float-wa-icon svg {
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
+}
+
+.float-wa:hover .float-wa-icon {
+  transform: scale(1.06);
+  background: #1ebe5b;
+}
+
+.float-wa:hover .float-wa-tag {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
 }
 
 @media (max-width: 950px) {
@@ -823,7 +867,7 @@ footer {
   }
 
   .large-photo {
-    height: 520px;
+    height: 460px;
   }
 
   .section {
@@ -858,7 +902,7 @@ footer {
   }
 
   .hero-media {
-    height: 440px;
+    height: 400px;
     min-height: 0;
   }
 
@@ -891,7 +935,7 @@ footer {
   }
 
   .large-photo {
-    height: 430px;
+    height: 380px;
   }
 
   .form {
@@ -903,9 +947,24 @@ footer {
   }
 
   .float-wa {
-    right: 12px;
-    bottom: 12px;
-    padding: 12px 15px;
+    right: 14px;
+    bottom: 14px;
+    gap: 8px;
+  }
+
+  .float-wa-tag {
+    font-size: 0.76rem;
+    padding: 8px 12px;
+  }
+
+  .float-wa-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .float-wa-icon svg {
+    width: 24px;
+    height: 24px;
   }
 
   .hero-actions .btn {

@@ -43,17 +43,17 @@ const PRODUCT_LINES: ProductLineCard[] = [
     models: [
       {
         name: 'BBB Simples',
-        ambientImage: '/assets/catalogo/bbb-simples-amb.png',
+        ambientImage: '/assets/catalogo/bbb-simples-amb.jpg',
         productImage: '/assets/catalogo/bbb-simples-prod.avif',
       },
       {
         name: 'BBB Frisada',
-        ambientImage: '/assets/catalogo/bbb-frisada-amb.png',
-        productImage: '/assets/catalogo/bbb-frisada-prod.png',
+        ambientImage: '/assets/catalogo/bbb-frisada-amb.jpg',
+        productImage: '/assets/catalogo/bbb-frisada-prod.jpg',
       },
       {
         name: 'BBB Vidro',
-        ambientImage: '/assets/catalogo/bbb-vidro-amb.png',
+        ambientImage: '/assets/catalogo/bbb-vidro-amb.jpg',
         productImage: '/assets/catalogo/bbb-vidro-prod.avif',
       },
     ],
@@ -70,23 +70,23 @@ const PRODUCT_LINES: ProductLineCard[] = [
     models: [
       {
         name: 'AD 01',
-        ambientImage: '/assets/catalogo/ad-01-amb.png',
+        ambientImage: '/assets/catalogo/ad-01-amb.jpg',
         productImage: '/assets/catalogo/ad-01-prod.avif',
       },
       {
         name: 'AD 02',
-        ambientImage: '/assets/catalogo/ad-02-amb.png',
+        ambientImage: '/assets/catalogo/ad-02-amb.jpg',
         productImage: '/assets/catalogo/ad-02-prod.avif',
       },
       {
         name: 'AD 03',
-        ambientImage: '/assets/catalogo/ad-03-amb.png',
-        productImage: '/assets/catalogo/ad-03-prod.png',
+        ambientImage: '/assets/catalogo/ad-03-amb.jpg',
+        productImage: '/assets/catalogo/ad-03-prod.jpg',
       },
       {
         name: 'AD Vidros',
         productImage: '/assets/catalogo/ad-vidros-prod.avif',
-        ambientImage: '/assets/catalogo/ad-01-amb.png',
+        ambientImage: '/assets/catalogo/ad-01-amb.jpg',
       },
     ],
   },
@@ -102,22 +102,22 @@ const PRODUCT_LINES: ProductLineCard[] = [
     models: [
       {
         name: 'Veneza',
-        ambientImage: '/assets/catalogo/veneza-amb.png',
+        ambientImage: '/assets/catalogo/veneza-amb.jpg',
         productImage: '/assets/catalogo/veneza-prod.avif',
       },
       {
         name: 'Veneza Inteira Vidro',
-        ambientImage: '/assets/catalogo/veneza-vidro-amb.png',
+        ambientImage: '/assets/catalogo/veneza-vidro-amb.jpg',
         productImage: '/assets/catalogo/veneza-prod.avif',
       },
       {
         name: 'Suíça',
-        ambientImage: '/assets/catalogo/suica-amb.png',
+        ambientImage: '/assets/catalogo/suica-amb.jpg',
         productImage: '/assets/catalogo/suica-prod.avif',
       },
       {
         name: 'Roma',
-        ambientImage: '/assets/catalogo/roma-amb.png',
+        ambientImage: '/assets/catalogo/roma-amb.jpg',
         productImage: '/assets/catalogo/roma-prod.avif',
       },
     ],
@@ -134,28 +134,28 @@ const PRODUCT_LINES: ProductLineCard[] = [
     models: [
       {
         name: 'França',
-        ambientImage: '/assets/catalogo/franca-amb.png',
+        ambientImage: '/assets/catalogo/franca-amb.jpg',
         productImage: '/assets/catalogo/franca-prod.avif',
       },
       {
         name: 'Itália',
-        ambientImage: '/assets/catalogo/italia-amb.png',
+        ambientImage: '/assets/catalogo/italia-amb.jpg',
         productImage: '/assets/catalogo/italia-prod.avif',
       },
       {
         name: 'Belga',
-        ambientImage: '/assets/catalogo/belga-amb.png',
+        ambientImage: '/assets/catalogo/belga-amb.jpg',
         productImage: '/assets/catalogo/belga-prod.avif',
       },
       {
         name: 'Mexicana',
-        ambientImage: '/assets/catalogo/mexicana-amb.png',
+        ambientImage: '/assets/catalogo/mexicana-amb.jpg',
         productImage: '/assets/catalogo/mexicana-prod.avif',
       },
       {
         name: 'Malta',
         productImage: '/assets/catalogo/malta-prod.avif',
-        ambientImage: '/assets/catalogo/mexicana-amb.png',
+        ambientImage: '/assets/catalogo/mexicana-amb.jpg',
       },
     ],
   },
@@ -165,18 +165,18 @@ const PRODUCT_LINES: ProductLineCard[] = [
     eyebrow: 'Linha Intermediária · Entradas & Destaque',
     title: 'Basalto · Zoan',
     description:
-      'Soluções de forte apelo arquitetônico para entradas e ambientes sociais, combinando madeira maciça trabalhadada e visores verticais.',
+      'Soluções de forte apelo arquitetônico para entradas e ambientes sociais, combinando madeira maciça trabalhada e visores verticais.',
     quoteOption: 'Linha Intermediária — Basalto / Zoan',
     ctaLabel: 'Orçar Basalto / Zoan',
     models: [
       {
         name: 'Basalto',
-        ambientImage: '/assets/catalogo/basalto-amb.png',
+        ambientImage: '/assets/catalogo/basalto-amb.jpg',
         productImage: '/assets/catalogo/basalto-prod.avif',
       },
       {
         name: 'Zoan',
-        ambientImage: '/assets/catalogo/zoan-amb.png',
+        ambientImage: '/assets/catalogo/zoan-amb.jpg',
         productImage: '/assets/catalogo/basalto-prod.avif',
       },
     ],
@@ -245,7 +245,7 @@ const PRODUCT_LINES: ProductLineCard[] = [
       },
       {
         name: 'Durango',
-        productImage: '/assets/catalogo/eng-durango-prod.png',
+        productImage: '/assets/catalogo/eng-durango-prod.jpg',
       },
       {
         name: 'Novel',
@@ -253,7 +253,7 @@ const PRODUCT_LINES: ProductLineCard[] = [
       },
       {
         name: 'Ripada Fuji',
-        productImage: '/assets/catalogo/eng-fuji-prod.png',
+        productImage: '/assets/catalogo/eng-fuji-prod.jpg',
       },
     ],
   },
@@ -269,12 +269,12 @@ const PRODUCT_LINES: ProductLineCard[] = [
     models: [
       {
         name: 'PV 08',
-        ambientImage: '/assets/catalogo/slim-pv08-amb.png',
+        ambientImage: '/assets/catalogo/slim-pv08-amb.jpg',
         productImage: '/assets/catalogo/slim-pv08-prod.avif',
       },
       {
         name: 'PV 10 (Kit de Giro)',
-        ambientImage: '/assets/catalogo/slim-pv10-amb.png',
+        ambientImage: '/assets/catalogo/slim-pv10-amb.jpg',
         productImage: '/assets/catalogo/slim-pv10-prod.avif',
       },
       {
@@ -284,13 +284,13 @@ const PRODUCT_LINES: ProductLineCard[] = [
       },
       {
         name: 'PV 12 Correr',
-        productImage: '/assets/catalogo/slim-pv12-correr-prod.png',
-        ambientImage: '/assets/catalogo/slim-pv10-amb.png',
+        productImage: '/assets/catalogo/slim-pv12-correr-prod.jpg',
+        ambientImage: '/assets/catalogo/slim-pv10-amb.jpg',
       },
       {
         name: 'PV 12 Dupla',
-        productImage: '/assets/catalogo/slim-pv12-dupla-prod.png',
-        ambientImage: '/assets/catalogo/slim-pv08-amb.png',
+        productImage: '/assets/catalogo/slim-pv12-dupla-prod.jpg',
+        ambientImage: '/assets/catalogo/slim-pv08-amb.jpg',
       },
     ],
   },
@@ -306,23 +306,23 @@ const PRODUCT_LINES: ProductLineCard[] = [
     models: [
       {
         name: 'Mônaco',
-        ambientImage: '/assets/catalogo/woodglass-monaco-amb.png',
+        ambientImage: '/assets/catalogo/woodglass-monaco-amb.jpg',
         productImage: '/assets/catalogo/woodglass-monaco-prod.avif',
       },
       {
         name: 'Zurique',
-        ambientImage: '/assets/catalogo/woodglass-zurique-amb.png',
+        ambientImage: '/assets/catalogo/woodglass-zurique-amb.jpg',
         productImage: '/assets/catalogo/woodglass-zurique-prod.avif',
       },
       {
         name: 'Milão',
         productImage: '/assets/catalogo/woodglass-milao-prod.avif',
-        ambientImage: '/assets/catalogo/woodglass-monaco-amb.png',
+        ambientImage: '/assets/catalogo/woodglass-monaco-amb.jpg',
       },
       {
         name: 'Panorâmica',
         productImage: '/assets/catalogo/woodglass-panoramica-prod.avif',
-        ambientImage: '/assets/catalogo/woodglass-zurique-amb.png',
+        ambientImage: '/assets/catalogo/woodglass-zurique-amb.jpg',
       },
     ],
   },
@@ -366,7 +366,6 @@ export default function HomePage() {
   const [zap, setZap] = useState('');
   const [cidade, setCidade] = useState('');
   const [perfil, setPerfil] = useState('');
-  const [qtd, setQtd] = useState('');
   const [linha, setLinha] = useState('Preciso de orientação');
   const [mensagem, setMensagem] = useState('');
 
@@ -394,7 +393,6 @@ export default function HomePage() {
       `WhatsApp: ${zap.trim()}`,
       `Cidade da obra: ${cidade.trim()}`,
       `Perfil: ${perfil.trim()}`,
-      `Quantidade estimada: ${qtd.trim() || 'A definir'}`,
       `Linha / produto: ${linha.trim()}`,
       `Detalhes: ${mensagem.trim() || 'Solicito orientação'}`,
     ];
@@ -416,6 +414,8 @@ export default function HomePage() {
               className="logo"
               src="/assets/woodtech-logo-oficial.jpg"
               alt="WoodTech — Kit Porta Pronta"
+              width={188}
+              height={66}
             />
           </a>
           <nav
@@ -482,6 +482,10 @@ export default function HomePage() {
             <img
               src="/assets/entrada.jpg"
               alt="Entrada de residência contemporânea com porta de madeira de grandes dimensões"
+              fetchPriority="high"
+              decoding="async"
+              width={900}
+              height={1080}
             />
             <div className="photo-label">Madeira, arquitetura e precisão</div>
           </div>
@@ -558,6 +562,9 @@ export default function HomePage() {
               src="/assets/interior.jpg"
               alt="Porta de madeira contemporânea vista pelo interior com acabamento de alto padrão"
               loading="lazy"
+              decoding="async"
+              width={864}
+              height={1080}
             />
           </div>
         </section>
@@ -661,6 +668,9 @@ export default function HomePage() {
                           effectiveMode === 'ambient' ? 'Ambientada' : 'Somente o produto'
                         })`}
                         loading="lazy"
+                        decoding="async"
+                        width={420}
+                        height={240}
                       />
                       {hasBothViews && (
                         <div className="media-toggle" role="group" aria-label="Alternar imagem">
@@ -898,6 +908,9 @@ export default function HomePage() {
               src="/assets/entrada-paisagismo.jpg"
               alt="Arquitetura contemporânea com porta principal de madeira e jardim integrado"
               loading="lazy"
+              decoding="async"
+              width={864}
+              height={1080}
             />
             <div>
               <span className="eyebrow">WoodTech · Estrutura e agilidade</span>
@@ -1056,46 +1069,33 @@ export default function HomePage() {
                   </select>
                 </div>
               </div>
-              <div className="duo">
-                <div className="field">
-                  <label htmlFor="qtd">Quantidade estimada</label>
-                  <input
-                    id="qtd"
-                    type="number"
-                    min="1"
-                    placeholder="Ex.: 12"
-                    value={qtd}
-                    onChange={(e) => setQtd(e.target.value)}
-                  />
-                </div>
-                <div className="field">
-                  <label htmlFor="linha">Linha ou produto</label>
-                  <select
-                    id="linha"
-                    value={linha}
-                    onChange={(e) => setLinha(e.target.value)}
-                  >
-                    <option value="Preciso de orientação">Preciso de orientação</option>
-                    <option value="Linha Intermediária — BBB">Linha Intermediária — BBB</option>
-                    <option value="Linha Intermediária — AD">Linha Intermediária — AD</option>
-                    <option value="Linha Intermediária — Clássicas (Veneza, Suíça, Roma)">
-                      Linha Intermediária — Clássicas (Veneza, Suíça, Roma)
-                    </option>
-                    <option value="Linha Intermediária — Internacional">
-                      Linha Intermediária — Internacional
-                    </option>
-                    <option value="Linha Intermediária — Basalto / Zoan">
-                      Linha Intermediária — Basalto / Zoan
-                    </option>
-                    <option value="Linha Carpentry">Linha Carpentry</option>
-                    <option value="Linha Engenheirada">Linha Engenheirada</option>
-                    <option value="Linha Slim">Linha Slim</option>
-                    <option value="Linha WoodGlass">Linha WoodGlass</option>
-                    <option value="Especiais / Catálogo Jomadi">
-                      Especiais / Catálogo Jomadi
-                    </option>
-                  </select>
-                </div>
+              <div className="field">
+                <label htmlFor="linha">Linha ou produto</label>
+                <select
+                  id="linha"
+                  value={linha}
+                  onChange={(e) => setLinha(e.target.value)}
+                >
+                  <option value="Preciso de orientação">Preciso de orientação</option>
+                  <option value="Linha Intermediária — BBB">Linha Intermediária — BBB</option>
+                  <option value="Linha Intermediária — AD">Linha Intermediária — AD</option>
+                  <option value="Linha Intermediária — Clássicas (Veneza, Suíça, Roma)">
+                    Linha Intermediária — Clássicas (Veneza, Suíça, Roma)
+                  </option>
+                  <option value="Linha Intermediária — Internacional">
+                    Linha Intermediária — Internacional
+                  </option>
+                  <option value="Linha Intermediária — Basalto / Zoan">
+                    Linha Intermediária — Basalto / Zoan
+                  </option>
+                  <option value="Linha Carpentry">Linha Carpentry</option>
+                  <option value="Linha Engenheirada">Linha Engenheirada</option>
+                  <option value="Linha Slim">Linha Slim</option>
+                  <option value="Linha WoodGlass">Linha WoodGlass</option>
+                  <option value="Especiais / Catálogo Jomadi">
+                    Especiais / Catálogo Jomadi
+                  </option>
+                </select>
               </div>
               <div className="field">
                 <label htmlFor="mensagem">Detalhes do projeto</label>
@@ -1144,9 +1144,14 @@ export default function HomePage() {
         href="https://wa.me/5571996116361?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20WoodTech."
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Falar com WoodTech pelo WhatsApp"
+        aria-label="Olá, em que podemos ajudar? Falar com WoodTech pelo WhatsApp"
       >
-        WhatsApp ↗
+        <span className="float-wa-tag">Olá, em que podemos ajudar?</span>
+        <span className="float-wa-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.004 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.256.59 4.46 1.71 6.404L3.2 28.8l6.56-1.718a12.74 12.74 0 0 0 6.244 1.622h.006c7.068 0 12.79-5.73 12.79-12.8 0-3.42-1.332-6.636-3.75-9.054A12.716 12.716 0 0 0 16.004 3.2zm0 23.344h-.004a10.6 10.6 0 0 1-5.404-1.48l-.388-.23-3.892 1.02 1.038-3.794-.252-.402a10.58 10.58 0 0 1-1.634-5.658c0-5.868 4.774-10.642 10.644-10.642 2.842 0 5.514 1.108 7.524 3.118a10.57 10.57 0 0 1 3.116 7.526c0 5.87-4.776 10.542-10.748 10.542zm5.838-7.968c-.32-.16-1.892-.934-2.186-1.04-.292-.108-.506-.16-.72.16-.212.32-.826 1.04-1.012 1.254-.186.212-.374.24-.694.08-.32-.16-1.35-.498-2.572-1.586-.95-.848-1.592-1.896-1.778-2.216-.186-.32-.02-.492.14-.652.144-.144.32-.374.48-.56.16-.186.212-.32.32-.534.106-.212.054-.4-.026-.56-.08-.16-.72-1.734-.986-2.374-.26-.624-.526-.538-.72-.548l-.614-.01c-.212 0-.56.08-.852.4-.294.32-1.12 1.094-1.12 2.668s1.146 3.094 1.306 3.308c.16.212 2.256 3.444 5.466 4.83.764.33 1.36.526 1.824.674.766.244 1.464.21 2.016.128.614-.092 1.892-.774 2.16-1.52.266-.748.266-1.388.186-1.52-.08-.134-.294-.214-.614-.374z" />
+          </svg>
+        </span>
       </a>
     </>
   );
