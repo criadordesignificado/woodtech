@@ -9,7 +9,7 @@ type FilterCategory =
   | 'engenheirada'
   | 'slim'
   | 'woodglass'
-  | 'especiais';
+  | 'lancamentos';
 
 type ImageViewMode = 'ambient' | 'product';
 
@@ -327,13 +327,13 @@ const PRODUCT_LINES: ProductLineCard[] = [
     ],
   },
   {
-    id: 'especiais-jomadi',
-    category: 'especiais',
-    eyebrow: 'Especiais · Laqueadas & Catálogo Jomadi',
-    title: 'Laqueada Preta · Pivotantes · Estruturais',
+    id: 'lancamentos-portas',
+    category: 'lancamentos',
+    eyebrow: 'Lançamentos · Portas Especiais & Maciças',
+    title: 'Laqueada Preta · Pivotantes · Trabalhadas',
     description:
-      'Portas com pintura laqueada, soluções piso-teto e modelos por código do catálogo Jomadi (maciças, pivotantes e esquadrias).',
-    quoteOption: 'Especiais / Catálogo Jomadi',
+      'Portas com pintura laqueada, soluções pivotantes e estruturais piso-teto, além de folhas maciças trabalhadas sob medida.',
+    quoteOption: 'Lançamentos — Portas Especiais & Maciças',
     ctaLabel: 'Consultar modelos e códigos',
     models: [
       {
@@ -342,14 +342,51 @@ const PRODUCT_LINES: ProductLineCard[] = [
         ambientImage: '/assets/interior.jpg',
       },
       {
-        name: 'Pivotantes & Estruturais (Jomadi)',
-        productImage: '/assets/catalogo/jomadi-1.jpeg',
+        name: 'Pivotantes & Estruturais',
+        productImage: '/assets/catalogo/lancamento-pivotantes-prod.jpg',
         ambientImage: '/assets/entrada.jpg',
       },
       {
-        name: 'Maciças & Venezianas (Jomadi)',
-        productImage: '/assets/catalogo/jomadi-2.jpeg',
+        name: 'Maciças & Visores',
+        productImage: '/assets/catalogo/lancamento-macicas-prod.jpg',
         ambientImage: '/assets/entrada-paisagismo.jpg',
+      },
+      {
+        name: 'Maciças Trabalhadas',
+        productImage: '/assets/catalogo/lancamento-trabalhadas-prod.jpg',
+        ambientImage: '/assets/interior.jpg',
+      },
+    ],
+  },
+  {
+    id: 'lancamentos-esquadrias',
+    category: 'lancamentos',
+    eyebrow: 'Lançamentos · Esquadrias de Madeira',
+    title: 'Janelas · Venezianas · Básculas · Portas-Balcão',
+    description:
+      'Esquadrias em madeira nobre selecionada: janelas máximo-ar, panorâmicas, quadriculadas, básculas, capelas e portas-balcão com venezianas articuladas.',
+    quoteOption: 'Lançamentos — Esquadrias de Madeira',
+    ctaLabel: 'Orçar Esquadrias',
+    models: [
+      {
+        name: 'Máximo-Ar & Quadriculadas',
+        ambientImage: '/assets/catalogo/esquadrias-amb-1.jpg',
+        productImage: '/assets/catalogo/esquadrias-maximo-ar-prod.jpg',
+      },
+      {
+        name: 'Panorâmicas & 6 Vidros',
+        ambientImage: '/assets/catalogo/esquadrias-amb-4.jpg',
+        productImage: '/assets/catalogo/esquadrias-panoramica-prod.jpg',
+      },
+      {
+        name: 'Básculas & Capelas',
+        ambientImage: '/assets/catalogo/esquadrias-amb-2.jpg',
+        productImage: '/assets/catalogo/esquadrias-basculas-prod.jpg',
+      },
+      {
+        name: 'Venezianas & Portas-Balcão',
+        ambientImage: '/assets/catalogo/esquadrias-amb-3.jpg',
+        productImage: '/assets/catalogo/esquadrias-venezianas-prod.jpg',
       },
     ],
   },
@@ -591,7 +628,7 @@ export default function HomePage() {
                     { id: 'engenheirada', label: 'Linha Engenheirada' },
                     { id: 'slim', label: 'Linha Slim' },
                     { id: 'woodglass', label: 'Linha WoodGlass' },
-                    { id: 'especiais', label: 'Especiais & Jomadi' },
+                    { id: 'lancamentos', label: 'Lançamentos' },
                   ] as const
                 ).map((f) => (
                   <button
@@ -978,9 +1015,10 @@ export default function HomePage() {
             <details>
               <summary>Vocês fornecem esquadrias de madeira?</summary>
               <p>
-                Há soluções de esquadrias em avaliação de catálogo. Para modelos, medidas e
-                disponibilidade, consulte a equipe. A publicação da coleção completa depende da
-                validação do catálogo Jomadi.
+                Sim. Trabalhamos com linha de esquadrias em madeira nobre — incluindo janelas
+                máximo-ar, panorâmicas, quadriculadas, básculas, capelas e portas-balcão com
+                venezianas. Consulte nossa equipe para especificar modelos, códigos e medidas para o
+                seu projeto.
               </p>
             </details>
           </div>
@@ -1092,8 +1130,11 @@ export default function HomePage() {
                   <option value="Linha Engenheirada">Linha Engenheirada</option>
                   <option value="Linha Slim">Linha Slim</option>
                   <option value="Linha WoodGlass">Linha WoodGlass</option>
-                  <option value="Especiais / Catálogo Jomadi">
-                    Especiais / Catálogo Jomadi
+                  <option value="Lançamentos — Portas Especiais & Maciças">
+                    Lançamentos — Portas Especiais & Maciças
+                  </option>
+                  <option value="Lançamentos — Esquadrias de Madeira">
+                    Lançamentos — Esquadrias de Madeira
                   </option>
                 </select>
               </div>
